@@ -8,6 +8,12 @@ import { Title } from '../components/ui';
 
 import eventImage from './../assets/event.png';
 
+import {
+  HiOutlineClock,
+  HiOutlineCalendarDays,
+  HiOutlineMap,
+} from 'react-icons/hi2';
+
 const Story = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,7 +60,7 @@ const Categories = styled.div`
   padding: 0px;
   gap: 12px;
   padding: 0 20px;
-  overflow-x: scroll;
+  overflow-x: hidden;
   & > span {
     display: flex;
     flex-direction: row;
@@ -87,6 +93,32 @@ const Event = styled.div`
     align-items: flex-start;
     gap: 8px;
     padding: 20px;
+    h1 {
+      font-family: 'Sora';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 25px;
+      display: flex;
+      align-items: center;
+
+      /* Black */
+
+      color: #020300;
+    }
+    & > p {
+      color: #020300b2;
+    }
+  }
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  & > .icon {
+    color: #ff3e3e;
   }
 `;
 
@@ -151,9 +183,30 @@ export const Home = () => {
           <img src={eventImage} alt="" />
           <div>
             <h1>Party type of event</h1>
-            <div>
-                
-            </div>
+            <Info>
+              <HiOutlineMap size={20} className="icon" /> <span>EJ 305</span>
+              <HiOutlineCalendarDays className="icon" size={20} />{' '}
+              <span>10/10/2021</span>
+              <HiOutlineClock size={20} className="icon" />{' '}
+              <span>10:00 AM</span>
+            </Info>
+            <p>
+              Whitty is a student connection app specifically designed for
+              Whitworth University students.
+            </p>
+          </div>
+        </Event>
+        <Event>
+          <img src={eventImage} alt="" />
+          <div>
+            <h1>WhitCode Social Hour</h1>
+            <Info>
+              <HiOutlineMap size={20} className="icon" /> <span>EJ 305</span>
+              <HiOutlineCalendarDays className="icon" size={20} />{' '}
+              <span>10/10/2021</span>
+              <HiOutlineClock size={20} className="icon" />{' '}
+              <span>10:00 AM</span>
+            </Info>
             <p>
               Whitty is a student connection app specifically designed for
               Whitworth University students.
