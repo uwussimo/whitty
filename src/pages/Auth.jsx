@@ -24,8 +24,6 @@ export const Auth = () => {
   useEffect(() => {
     if (user) {
       return navigate('/home');
-    } else {
-      return navigate('/auth');
     }
   }, [user]);
 

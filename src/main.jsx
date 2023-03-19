@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Auth, Home } from './pages/';
+import { Header } from './components/Header';
 
 import './styles/global.css';
+import { Appbar } from './components/Appbar';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />{' '}
+    <Header />
+    <RouterProvider router={router} />
+    <Appbar />
   </React.StrictMode>
 );
