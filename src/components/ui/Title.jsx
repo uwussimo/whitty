@@ -11,7 +11,7 @@ export const Title = styled.h1`
   text-align: center;
 
   /* Black */
-  padding: 20px;
+  padding: 20px 20px 0 20px;
 
   color: #020300;
 `;

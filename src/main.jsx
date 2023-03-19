@@ -6,7 +6,7 @@ import { Auth, Home } from './pages/';
 import { Header } from './components/Header';
 
 import './styles/global.css';
-import { Appbar } from './components/Appbar';
+import { Profile } from './pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -21,12 +21,15 @@ const router = createBrowserRouter([
     path: '/home',
     element: <Home />,
   },
+  {
+    path: '/profile',
+    element: <Profile />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Header />
     <RouterProvider router={router} />
-    <Appbar />
   </React.StrictMode>
 );

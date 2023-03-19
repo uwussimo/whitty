@@ -1,4 +1,5 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   BellIcon,
@@ -26,18 +27,17 @@ const Container = styled.div`
 `;
 
 const Appbar = () => {
-  const [user, loading] = useAuthState(auth);
   return (
     <div>
-      {user && (
-        <Container>
-          <img src={LightningBoltOutline} alt="Home" />
-          <img src={SearchOutline} alt="Search" />
-          <img src={PlusOutline} alt="Plus" />
-          <img src={BellIcon} alt="Notification" />
+      <Container>
+        <img src={LightningBoltOutline} alt="Home" />
+        <img src={SearchOutline} alt="Search" />
+        <img src={PlusOutline} alt="Plus" />
+        <img src={BellIcon} alt="Notification" />
+        <Link to="/profile">
           <img src={UserCircleOutline} alt="User Profile" />
-        </Container>
-      )}
+        </Link>
+      </Container>
     </div>
   );
 };

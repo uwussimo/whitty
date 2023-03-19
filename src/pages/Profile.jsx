@@ -1,5 +1,6 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from './../config/firebase';
+import { auth } from '../config/firebase';
+import { signOut } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -123,7 +124,57 @@ const Info = styled.div`
   }
 `;
 
-export const Home = () => {
+const ProfileContainer = styled.div`
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  color: #fff;
+  padding: 20px;
+  background: linear-gradient(0deg, #020300, #020300),
+    radial-gradient(
+      100% 100% at 98.73% 0%,
+      rgba(255, 0, 0, 0.2) 0%,
+      rgba(255, 85, 85, 0) 100%
+    ),
+    radial-gradient(
+      64.21% 64.21% at 0% 90.36%,
+      rgba(6, 151, 255, 0.2) 0%,
+      rgba(57, 172, 255, 0) 100%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+
+  img {
+    width: 164px;
+    height: 164px;
+    border-radius: 50%;
+  }
+`;
+
+const SignOutButton = styled.button`
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 8px;
+  gap: 10px;
+
+  /* Primary/Red */
+  background: #ff3e3e;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const Profile = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
@@ -136,49 +187,27 @@ export const Home = () => {
 
   return (
     <div>
-      <Stories>
-        {Array(10)
-          .fill(0)
-          .map((_, i) => (
-            <Story key={i}>
-              <img
-                src={
-                  user?.photoURL ||
-                  'https://c1.alamy.com/thumbs/2g7ft6p/default-avatar-photo-placeholder-grey-profile-picture-icon-man-in-t-shirt-2g7ft6p.jpg'
-                }
-                alt=""
-              />
-              <h1>
-                {user?.displayName
-                  ? user?.displayName?.slice(0, 8)
-                  : user?.email.slice(0, 8)}
-              </h1>
-            </Story>
-          ))}
-      </Stories>
-      <Title>Upcoming Events</Title>
-      <Categories>
-        <span>
-          <input type="radio" name="category" id="sports" />{' '}
-          <label for="sports">Sports</label>
-        </span>
-        <span>
-          <input type="radio" name="category" id="clubs" />{' '}
-          <label for="clubs">Clubs</label>
-        </span>
-        <span>
-          <input type="radio" name="category" id="food" />{' '}
-          <label for="food">Food</label>
-        </span>
-        <span>
-          <input type="radio" name="category" id="gaming" />{' '}
-          <label for="gaming">Gaming</label>
-        </span>
-        <span>
-          <input type="radio" name="category" id="career" />{' '}
-          <label for="career">Career</label>
-        </span>
-      </Categories>
+      <ProfileContainer>
+        <img
+          src={
+            user?.photoURL
+              ? user.photoURL
+              : 'https://c1.alamy.com/thumbs/2g7ft6p/default-avatar-photo-placeholder-grey-profile-picture-icon-man-in-t-shirt-2g7ft6p.jpg'
+          }
+          alt="Avatar"
+        />
+        <h2>{user?.displayName}</h2>
+        <p>{user?.email}</p>
+        <SignOutButton
+          onClick={() => {
+            signOut(auth);
+            navigate('/auth');
+          }}
+        >
+          Sign out
+        </SignOutButton>
+      </ProfileContainer>
+      <Title>Hosted Events</Title>
       <div>
         <Event>
           <img src={eventImage} alt="" />
