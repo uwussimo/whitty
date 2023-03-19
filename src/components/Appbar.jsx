@@ -9,7 +9,7 @@ import {
 } from '../assets/icons';
 import { auth } from '../config/firebase';
 
-const Cotainer = styled.div`
+const Container = styled.div`
   position: fixed;
   bottom: 0px;
   left: 0px;
