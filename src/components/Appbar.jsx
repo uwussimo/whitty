@@ -1,3 +1,4 @@
+import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 import {
   BellIcon,
@@ -6,6 +7,7 @@ import {
   SearchOutline,
   UserCircleOutline,
 } from '../assets/icons';
+import { auth } from '../config/firebase';
 
 const Cotainer = styled.div`
   position: fixed;
@@ -24,14 +26,19 @@ const Cotainer = styled.div`
 `;
 
 const Appbar = () => {
+  const [user, loading] = useAuthState(auth);
   return (
-    <Cotainer>
-      <img src={LightningBoltOutline} alt="Home" />
-      <img src={SearchOutline} alt="Search" />
-      <img src={PlusOutline} alt="Plus" />
-      <img src={BellIcon} alt="Notification" />
-      <img src={UserCircleOutline} alt="User Profile" />
-    </Cotainer>
+    <div>
+      {user && (
+        <Container>
+          <img src={LightningBoltOutline} alt="Home" />
+          <img src={SearchOutline} alt="Search" />
+          <img src={PlusOutline} alt="Plus" />
+          <img src={BellIcon} alt="Notification" />
+          <img src={UserCircleOutline} alt="User Profile" />
+        </Container>
+      )}
+    </div>
   );
 };
 

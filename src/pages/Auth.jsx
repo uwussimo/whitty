@@ -19,13 +19,13 @@ export const Auth = () => {
     password: '',
   });
 
-  const [user] = useAuthState(auth);
+  const [user, load] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
       return navigate('/home');
     }
-  }, [user]);
+  }, [user, load]);
 
   const handleChange = (e) => {
     setSign({

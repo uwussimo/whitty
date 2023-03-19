@@ -14,7 +14,7 @@ const App = () => {
         return navigate('/home');
       }
     }
-  }, [user, navigate]);
+  }, [user, loading]);
   return null;
 };
 

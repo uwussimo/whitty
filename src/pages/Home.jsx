@@ -131,7 +131,7 @@ export const Home = () => {
         return navigate('/auth');
       }
     }
-  }, [user]);
+  }, [user, loading]);
 
   return (
     <div>
