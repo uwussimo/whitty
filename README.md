@@ -1,6 +1,6 @@
 # Whitty - College Connectivity Platform
 
-> This app was built for hackathon purposes...
+> This app was built for hackathon purposes, due to 24 hour time limit project is not finished...
 
 Whitty is a platform designed to connect college students and help them stay informed about events happening on campus. With features like an event calendar, social networking, messaging, location-based services, and user-generated content, Whitty aims to foster a sense of community and enhance the overall college experience.
 
