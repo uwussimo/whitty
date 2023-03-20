@@ -16,7 +16,7 @@ Whitty is a platform designed to connect college students and help them stay inf
 ## Technologies used
 - ReactJS (Vite)
 - 💅🏻 Styled Components
-- 🔥 Firebase
+- 🔥 Firebase Auth
 
 ## Figma Prototype
 - Figma link: https://www.figma.com/file/7kr40SUCGg7HtobrnPTPjs/Whitty?node-id=3%3A2&t=W7AZkTdRfhmjb07z-1
