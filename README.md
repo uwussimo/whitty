@@ -20,3 +20,7 @@ Whitty is a platform designed to connect college students and help them stay inf
 
 ## Figma Prototype
 - Figma link: https://www.figma.com/file/7kr40SUCGg7HtobrnPTPjs/Whitty?node-id=3%3A2&t=W7AZkTdRfhmjb07z-1
+
+## OSS Note
+
+This project is open-source and contributions are welcome! Feel free to clone the repo, submit issues, or contribute to the codebase. Together, we can build a better college community.
